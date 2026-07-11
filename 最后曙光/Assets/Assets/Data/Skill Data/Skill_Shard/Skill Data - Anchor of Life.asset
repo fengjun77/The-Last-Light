@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6c2d69938eb6240a9aad412d91a644, type: 3}
+  m_Name: Skill Data - Anchor of Life
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
+  cost: 12
+  skillType: 2
+  upgradeData:
+    upgradeType: 10
+    cooldown: 6
+  skillName: "\u751F\u547D\u4E4B\u951A"
+  description: "\u4F20\u9001\u6210\u529F\u53EF\u91CD\u7F6E\u751F\u547D\u4E3A\u653E\u7F6E\u6C34\u6676\u65F6\u7684\u751F\u547D"
+  icon: {fileID: -1039015473, guid: 9a3f8ce7ea3ac3a479f07a74cd2d0dc0, type: 3}

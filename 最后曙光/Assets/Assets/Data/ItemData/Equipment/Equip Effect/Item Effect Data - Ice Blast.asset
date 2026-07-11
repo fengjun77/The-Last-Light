@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbc34caf13539b4cbd37f7d7e73200e, type: 3}
+  m_Name: Item Effect Data - Ice Blast
+  m_EditorClassIdentifier: Assembly-CSharp::ItemEffect_IceBlast
+  effectDescription: "\u5F53\u8840\u91CF\u4F4E\u4E8E\u767E\u5206\u4E4B25\u65F6\uFF0C\u5411\u5468\u56F4\u91CA\u653E\u5BD2\u51B0\u51B2\u51FB\uFF0C\u7ED9\u654C\u4EBA\u65BD\u52A0\u51CF\u901F\u5E76\u9020\u6210\u4E00\u5B9A\u4F24\u5BB3\u3002\u51B7\u5374\u65F6\u95F460s"
+  effectData:
+    chillDuration: 3
+    chillSlowMultiplier: 0.6
+    burnDuration: 0
+    burnDamage: 0
+    shockDuration: 0
+    shockDamage: 0
+    shockCharge: 0
+  iceDamage: 10
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 256
+  healthPercentTrigger: 0.25
+  cooldown: 60
+  iceBlastVfx: {fileID: 5165832781578027193, guid: 34f8ff6360bfb12408976563ac2c6b19, type: 3}
+  onHitVfx: {fileID: 3894371025023542591, guid: d942bf34b53b3ea48b2cff58a824185e, type: 3}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0410bc8addafd6740b6ba5cf7162127e, type: 3}
+  m_Name: Equipment Data - Leather Leg Armor
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  price: 300
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemName: "\u76AE\u817F\u7532"
+  itemIcon: {fileID: -847867179, guid: 9a3f8ce7ea3ac3a479f07a74cd2d0dc0, type: 3}
+  itemType: 3
+  maxStackSize: 1
+  itemEffect: {fileID: 0}
+  craftRecips:
+  - itemData: {fileID: 11400000, guid: effb9844fd07f5a458a0328db75dbafb, type: 2}
+    stackSize: 12
+    itemEffect: {fileID: 0}
+    buyPrice: 0
+    sellPrice: 0
+  - itemData: {fileID: 11400000, guid: 0ee1c717b4a1df84eb24a3d2c555dbd2, type: 2}
+    stackSize: 2
+    itemEffect: {fileID: 0}
+    buyPrice: 0
+    sellPrice: 0
+  itemRarity: 60
+  dropChance: 41
+  maxDropChance: 60
+  modifiers:
+  - statType: 0
+    value: 20
+  - statType: 10
+    value: 2
+  - statType: 15
+    value: 5
