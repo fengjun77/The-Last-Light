@@ -42,11 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3894371025023542591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f777a482dd24c54b89fdf85595b0fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: ca0f0b5c15357f34e8920a553f79b58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFX_AutoController
-  canDestory: 1
-  destoryDelay: 1
+  autoDestory: 1
+  destoryDelay: 0.5
 --- !u!1 &7499079861039986310
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +82,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4531835150170761106
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,6 +128,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 9ca1d4ec8c6955c449b2056a8da3c1ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,7 +138,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1832101033820909718
 Animator:

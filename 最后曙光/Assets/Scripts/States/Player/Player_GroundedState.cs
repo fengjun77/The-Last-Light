@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_GroundedState : EntityState
+public class Player_GroundedState : PlayerState
 {
     public Player_GroundedState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -23,6 +23,11 @@ public class Player_GroundedState : EntityState
         if(input.Player.Attack.WasPressedThisFrame())
         {
             stateMachine.ChangeState(player.attackState);
+        }
+
+        if(input.Player.Counter.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.counterAttackState);
         }
     }
 }
