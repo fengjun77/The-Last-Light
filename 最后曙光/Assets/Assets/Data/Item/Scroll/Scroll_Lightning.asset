@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0990a630f5ffb146bbc79fb08a4530e, type: 3}
+  m_Name: Scroll_Lightning
+  m_EditorClassIdentifier: Assembly-CSharp::SkillScrollSO
+  collectibleName: "\u6280\u80FD\u5377\u8F74"
+  icon: {fileID: -5164599079202685034, guid: 9e4dc1406089696469988e15fcfc1078, type: 3}
+  type: 0
+  targetSkill: {fileID: 11400000, guid: 8a3fa0d0148996748a92acde2845258b, type: 2}

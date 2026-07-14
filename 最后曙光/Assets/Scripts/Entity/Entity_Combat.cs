@@ -1,10 +1,11 @@
 using System.Threading.Tasks;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {  
     private Entity_VFX vfx;
-    public float damage = 1;
+    private Entity_Stats stats;
 
     [Header("目标检测")]
     public Transform attackCheckPoint;
@@ -14,6 +15,7 @@ public class Entity_Combat : MonoBehaviour
     void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
+        stats = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
@@ -21,10 +23,32 @@ public class Entity_Combat : MonoBehaviour
         foreach(var target in GetDetectedColliders())
         {
             IDamageable damageable = target.GetComponent<IDamageable>();
+            Entity targetEntity = target.GetComponent<Entity>();
+            Entity_Stats targetStat = target.GetComponent<Entity_Stats>();
+            
             if(damageable == null) continue;
 
-            damageable.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            bool isCrit;
+            float damage = stats.GetPhysicalDamage(out isCrit);
+            //自己的护甲穿透
+            float armorReduction = stats.GetArmorReduction();
+            //对方的护甲减免
+            float mitigation = 0;
+            if(targetStat != null)
+                mitigation = targetStat.GetArmorMitigation(armorReduction);
+            float finalDamage = damage * (1 - mitigation);
+            
+            bool targetGotHit = damageable.TakeDamage(finalDamage, transform);
+            
+            if(targetGotHit)
+            {
+                vfx.CreateOnHitVFX(target.transform);
+                EventCenter.OnHitEvent(finalDamage, isCrit, targetEntity);
+            }
+            else
+            {
+                EventCenter.OnHitEvent(0, false, targetEntity);
+            }
         }
     }
 

@@ -78,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -257578225
+  m_SortingLayer: 4
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -380937466, guid: c5fac55c487387d4490529baa2e0dee8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -140,9 +140,9 @@ Transform:
   m_GameObject: {fileID: 4556715086792343735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.51346, y: -19.03406, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6237826737517523289}
   m_Father: {fileID: 0}
@@ -161,3 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VFX_AutoController
   autoDestory: 1
   destoryDelay: 1
+  randomOffset: 1
+  xMinOffset: -0.3
+  xMaxOffset: 0.3
+  yMinOffset: -0.3
+  yMaxOffset: 0.3

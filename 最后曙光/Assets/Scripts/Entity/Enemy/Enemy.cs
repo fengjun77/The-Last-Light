@@ -35,6 +35,8 @@ public class Enemy : Entity
 
     public Transform player { get; private set; }
 
+    public Transform damageNumRoot;
+
     void OnEnable()
     {
         EventCenter.OnPlayerDeath += HandlePlayerDeath;    

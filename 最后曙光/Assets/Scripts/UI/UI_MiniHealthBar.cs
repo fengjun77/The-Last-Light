@@ -4,10 +4,12 @@ using UnityEngine.UI;
 public class UI_MiniHealthBar : MonoBehaviour
 {
     private Slider healthBar;
+    private Entity owner;
 
     void Awake()
     {
         healthBar = GetComponentInChildren<Slider>();
+        owner = GetComponentInParent<Entity>();
     }
 
     void OnEnable()
@@ -22,8 +24,11 @@ public class UI_MiniHealthBar : MonoBehaviour
         EventCenter.OnFlip -= HandleFlip;
     }
 
-    private void UpdateHealthBarUI(float currentHp, float maxHP)
+    private void UpdateHealthBarUI(float currentHp, float maxHP, Entity entity)
     {
+        if(entity != owner)
+            return;
+
         healthBar.value = currentHp / maxHP;
     }
 

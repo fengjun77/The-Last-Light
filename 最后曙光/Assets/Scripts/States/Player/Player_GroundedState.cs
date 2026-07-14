@@ -29,5 +29,10 @@ public class Player_GroundedState : PlayerState
         {
             stateMachine.ChangeState(player.counterAttackState);
         }
+
+        if(input.Player.CastSkill.WasPerformedThisFrame() && skill.CanCast(skill.currentSkill))
+        {
+            stateMachine.ChangeState(player.castSkillState);
+        }
     }
 }

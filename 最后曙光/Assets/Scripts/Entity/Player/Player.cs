@@ -16,7 +16,10 @@ public class Player : Entity
     public Player_BasicAttackState attackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
+    public Player_CastSkillState castSkillState { get; private set; }
     public Player_DeadState deadState { get; private set; }
+
+    public SkillManager skillManager;
 
     [Header("移动相关")]
     public float moveSpeed;
@@ -56,6 +59,7 @@ public class Player : Entity
         attackState = new Player_BasicAttackState(this, stateMachine, "basicAttack");
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "jumpAttack");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
+        castSkillState = new Player_CastSkillState(this, stateMachine, "castSkill");
         deadState = new Player_DeadState(this, stateMachine, "dead");
     }
 

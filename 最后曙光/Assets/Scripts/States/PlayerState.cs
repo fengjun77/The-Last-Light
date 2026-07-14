@@ -5,6 +5,7 @@ public abstract class PlayerState : EntityState
 {
     protected Player player;
     protected PlayerInputSet input;
+    protected SkillManager skill;
 
     public PlayerState(Player player, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {
@@ -13,6 +14,8 @@ public abstract class PlayerState : EntityState
         anim = player.anim;
         rb = player.rb;
         input = player.input;
+        stats = player.stats;
+        skill = player.skillManager;
     }
 
     public override void Enter()

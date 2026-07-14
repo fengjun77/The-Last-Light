@@ -136,6 +136,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CastSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""a53ac4e7-5bf1-409c-baa7-6ac6a13d3490"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,6 +257,236 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""action"": ""Counter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b3971a7-eb0a-49dd-a072-e9a26fd0146b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CastSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""d0c33d5e-928a-40c0-8b49-5dc72d91395b"",
+            ""actions"": [
+                {
+                    ""name"": ""SelectSkillUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""795a213f-397e-485f-ac68-15b8fbb247f2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkillDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4cb9982-3a76-42b7-8cbd-7550184ab9c9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill1"",
+                    ""type"": ""Button"",
+                    ""id"": ""96ade21c-435f-4ca7-816d-1a5526ad8e2d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill2"",
+                    ""type"": ""Button"",
+                    ""id"": ""69d34a7f-51c4-4cc9-931a-fdb3ee60d760"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill3"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6d5c1bf-2734-40c5-9bc0-59b3ec3de331"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill4"",
+                    ""type"": ""Button"",
+                    ""id"": ""b257d381-33fb-4eec-bbe7-0a852b5b41b1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill5"",
+                    ""type"": ""Button"",
+                    ""id"": ""e12db9f3-7cf6-4780-8aee-9856cf085529"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill6"",
+                    ""type"": ""Button"",
+                    ""id"": ""01193841-7f4d-48f1-b113-447f58b36470"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill7"",
+                    ""type"": ""Button"",
+                    ""id"": ""be938a89-d8b7-43d2-bc24-45b9ec682a6f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSkill8"",
+                    ""type"": ""Button"",
+                    ""id"": ""84adcd7c-f653-4dd8-82ee-336c2184a03c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0eaee63a-36a7-4065-9cf5-f93802298e74"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1fd038e6-df45-4f16-b7cd-0b45cc22ed62"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkillUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab335bbb-78b7-449b-ab34-87cd147e99b6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkillDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4044c173-951d-4a56-9565-492191f3d190"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkillDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41109ede-2ec6-4640-b73b-f268307d27e3"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32260dc9-6ef2-4849-8570-944a0b3d07ce"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea6f96da-8bda-4ac3-b3e5-fdc524ec4389"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b11ce166-03bc-45e7-b881-200ac7a69e00"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ffb912a-5062-422e-858d-d29b97c3a90f"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f903c67-210e-42c1-b722-ddf44f8584de"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3b5da55-007b-4442-8dc4-7edf018d81bc"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectSkill8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -261,11 +500,25 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
+        m_Player_CastSkill = m_Player.FindAction("CastSkill", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_SelectSkillUp = m_UI.FindAction("SelectSkillUp", throwIfNotFound: true);
+        m_UI_SelectSkillDown = m_UI.FindAction("SelectSkillDown", throwIfNotFound: true);
+        m_UI_SelectSkill1 = m_UI.FindAction("SelectSkill1", throwIfNotFound: true);
+        m_UI_SelectSkill2 = m_UI.FindAction("SelectSkill2", throwIfNotFound: true);
+        m_UI_SelectSkill3 = m_UI.FindAction("SelectSkill3", throwIfNotFound: true);
+        m_UI_SelectSkill4 = m_UI.FindAction("SelectSkill4", throwIfNotFound: true);
+        m_UI_SelectSkill5 = m_UI.FindAction("SelectSkill5", throwIfNotFound: true);
+        m_UI_SelectSkill6 = m_UI.FindAction("SelectSkill6", throwIfNotFound: true);
+        m_UI_SelectSkill7 = m_UI.FindAction("SelectSkill7", throwIfNotFound: true);
+        m_UI_SelectSkill8 = m_UI.FindAction("SelectSkill8", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInputSet.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputSet.UI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -346,6 +599,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Counter;
+    private readonly InputAction m_Player_CastSkill;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -377,6 +631,10 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Counter".
         /// </summary>
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/CastSkill".
+        /// </summary>
+        public InputAction @CastSkill => m_Wrapper.m_Player_CastSkill;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -418,6 +676,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Counter.started += instance.OnCounter;
             @Counter.performed += instance.OnCounter;
             @Counter.canceled += instance.OnCounter;
+            @CastSkill.started += instance.OnCastSkill;
+            @CastSkill.performed += instance.OnCastSkill;
+            @CastSkill.canceled += instance.OnCastSkill;
         }
 
         /// <summary>
@@ -444,6 +705,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Counter.started -= instance.OnCounter;
             @Counter.performed -= instance.OnCounter;
             @Counter.canceled -= instance.OnCounter;
+            @CastSkill.started -= instance.OnCastSkill;
+            @CastSkill.performed -= instance.OnCastSkill;
+            @CastSkill.canceled -= instance.OnCastSkill;
         }
 
         /// <summary>
@@ -477,6 +741,201 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_SelectSkillUp;
+    private readonly InputAction m_UI_SelectSkillDown;
+    private readonly InputAction m_UI_SelectSkill1;
+    private readonly InputAction m_UI_SelectSkill2;
+    private readonly InputAction m_UI_SelectSkill3;
+    private readonly InputAction m_UI_SelectSkill4;
+    private readonly InputAction m_UI_SelectSkill5;
+    private readonly InputAction m_UI_SelectSkill6;
+    private readonly InputAction m_UI_SelectSkill7;
+    private readonly InputAction m_UI_SelectSkill8;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "UI".
+    /// </summary>
+    public struct UIActions
+    {
+        private @PlayerInputSet m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public UIActions(@PlayerInputSet wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkillUp".
+        /// </summary>
+        public InputAction @SelectSkillUp => m_Wrapper.m_UI_SelectSkillUp;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkillDown".
+        /// </summary>
+        public InputAction @SelectSkillDown => m_Wrapper.m_UI_SelectSkillDown;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill1".
+        /// </summary>
+        public InputAction @SelectSkill1 => m_Wrapper.m_UI_SelectSkill1;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill2".
+        /// </summary>
+        public InputAction @SelectSkill2 => m_Wrapper.m_UI_SelectSkill2;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill3".
+        /// </summary>
+        public InputAction @SelectSkill3 => m_Wrapper.m_UI_SelectSkill3;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill4".
+        /// </summary>
+        public InputAction @SelectSkill4 => m_Wrapper.m_UI_SelectSkill4;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill5".
+        /// </summary>
+        public InputAction @SelectSkill5 => m_Wrapper.m_UI_SelectSkill5;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill6".
+        /// </summary>
+        public InputAction @SelectSkill6 => m_Wrapper.m_UI_SelectSkill6;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill7".
+        /// </summary>
+        public InputAction @SelectSkill7 => m_Wrapper.m_UI_SelectSkill7;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SelectSkill8".
+        /// </summary>
+        public InputAction @SelectSkill8 => m_Wrapper.m_UI_SelectSkill8;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @SelectSkillUp.started += instance.OnSelectSkillUp;
+            @SelectSkillUp.performed += instance.OnSelectSkillUp;
+            @SelectSkillUp.canceled += instance.OnSelectSkillUp;
+            @SelectSkillDown.started += instance.OnSelectSkillDown;
+            @SelectSkillDown.performed += instance.OnSelectSkillDown;
+            @SelectSkillDown.canceled += instance.OnSelectSkillDown;
+            @SelectSkill1.started += instance.OnSelectSkill1;
+            @SelectSkill1.performed += instance.OnSelectSkill1;
+            @SelectSkill1.canceled += instance.OnSelectSkill1;
+            @SelectSkill2.started += instance.OnSelectSkill2;
+            @SelectSkill2.performed += instance.OnSelectSkill2;
+            @SelectSkill2.canceled += instance.OnSelectSkill2;
+            @SelectSkill3.started += instance.OnSelectSkill3;
+            @SelectSkill3.performed += instance.OnSelectSkill3;
+            @SelectSkill3.canceled += instance.OnSelectSkill3;
+            @SelectSkill4.started += instance.OnSelectSkill4;
+            @SelectSkill4.performed += instance.OnSelectSkill4;
+            @SelectSkill4.canceled += instance.OnSelectSkill4;
+            @SelectSkill5.started += instance.OnSelectSkill5;
+            @SelectSkill5.performed += instance.OnSelectSkill5;
+            @SelectSkill5.canceled += instance.OnSelectSkill5;
+            @SelectSkill6.started += instance.OnSelectSkill6;
+            @SelectSkill6.performed += instance.OnSelectSkill6;
+            @SelectSkill6.canceled += instance.OnSelectSkill6;
+            @SelectSkill7.started += instance.OnSelectSkill7;
+            @SelectSkill7.performed += instance.OnSelectSkill7;
+            @SelectSkill7.canceled += instance.OnSelectSkill7;
+            @SelectSkill8.started += instance.OnSelectSkill8;
+            @SelectSkill8.performed += instance.OnSelectSkill8;
+            @SelectSkill8.canceled += instance.OnSelectSkill8;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @SelectSkillUp.started -= instance.OnSelectSkillUp;
+            @SelectSkillUp.performed -= instance.OnSelectSkillUp;
+            @SelectSkillUp.canceled -= instance.OnSelectSkillUp;
+            @SelectSkillDown.started -= instance.OnSelectSkillDown;
+            @SelectSkillDown.performed -= instance.OnSelectSkillDown;
+            @SelectSkillDown.canceled -= instance.OnSelectSkillDown;
+            @SelectSkill1.started -= instance.OnSelectSkill1;
+            @SelectSkill1.performed -= instance.OnSelectSkill1;
+            @SelectSkill1.canceled -= instance.OnSelectSkill1;
+            @SelectSkill2.started -= instance.OnSelectSkill2;
+            @SelectSkill2.performed -= instance.OnSelectSkill2;
+            @SelectSkill2.canceled -= instance.OnSelectSkill2;
+            @SelectSkill3.started -= instance.OnSelectSkill3;
+            @SelectSkill3.performed -= instance.OnSelectSkill3;
+            @SelectSkill3.canceled -= instance.OnSelectSkill3;
+            @SelectSkill4.started -= instance.OnSelectSkill4;
+            @SelectSkill4.performed -= instance.OnSelectSkill4;
+            @SelectSkill4.canceled -= instance.OnSelectSkill4;
+            @SelectSkill5.started -= instance.OnSelectSkill5;
+            @SelectSkill5.performed -= instance.OnSelectSkill5;
+            @SelectSkill5.canceled -= instance.OnSelectSkill5;
+            @SelectSkill6.started -= instance.OnSelectSkill6;
+            @SelectSkill6.performed -= instance.OnSelectSkill6;
+            @SelectSkill6.canceled -= instance.OnSelectSkill6;
+            @SelectSkill7.started -= instance.OnSelectSkill7;
+            @SelectSkill7.performed -= instance.OnSelectSkill7;
+            @SelectSkill7.canceled -= instance.OnSelectSkill7;
+            @SelectSkill8.started -= instance.OnSelectSkill8;
+            @SelectSkill8.performed -= instance.OnSelectSkill8;
+            @SelectSkill8.canceled -= instance.OnSelectSkill8;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+        /// </summary>
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+    /// </summary>
+    public UIActions @UI => new UIActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
     /// </summary>
@@ -519,5 +978,90 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCounter(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CastSkill" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCastSkill(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+    /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+    public interface IUIActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkillUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkillUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkillDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkillDown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectSkill8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectSkill8(InputAction.CallbackContext context);
     }
 }

@@ -21,6 +21,7 @@ public class Player_BasicAttackState : PlayerState
         base.Enter();
         comboAttackQueued = false;
         ResetComboIndex();
+        SyncAttackSpeed();
 
         if(player.moveInput.x != 0)
             attackDir = (int)player.moveInput.x;
