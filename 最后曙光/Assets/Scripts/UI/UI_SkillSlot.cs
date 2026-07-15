@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillSlot : MonoBehaviour
+public class UI_SkillSlot : MonoBehaviour
 {
     public Image skillIcon;
     public Image highlight;
@@ -46,7 +46,7 @@ public class SkillSlot : MonoBehaviour
         skillIcon.color = active ? highlightColor : normalColor;
         skillIcon.rectTransform.localScale = active ? highlightScale : normalScale;
         if(active && assignedSkill != null)
-            skillName.text = assignedSkill.collectibleName;
+            skillName.text = assignedSkill.skillName;
         skillName.enabled = active;
     }
 

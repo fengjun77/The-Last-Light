@@ -39,12 +39,12 @@ public class Enemy : Entity
 
     void OnEnable()
     {
-        EventCenter.OnPlayerDeath += HandlePlayerDeath;    
+        EventCenter.PlayerDeathEvent += HandlePlayerDeath;    
     }
 
     void OnDisable()
     {
-        EventCenter.OnPlayerDeath -= HandlePlayerDeath; 
+        EventCenter.PlayerDeathEvent -= HandlePlayerDeath; 
     }
 
     public void EnableCounterWindow(bool enable) => canBeStunned = enable;

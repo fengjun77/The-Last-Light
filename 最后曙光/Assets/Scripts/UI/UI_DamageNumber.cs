@@ -19,14 +19,14 @@ public class UI_DamageNumber : MonoBehaviour
     private void OnEnable()
     {
         // 全局监听受伤事件
-        EventCenter.OnHit += SpawnDamageText;
-        EventCenter.OnFlip += HandleFlip;
+        EventCenter.HitEvent += SpawnDamageText;
+        EventCenter.FlipEvent += HandleFlip;
     }
 
     private void OnDisable()
     {
-        EventCenter.OnHit -= SpawnDamageText;
-        EventCenter.OnFlip -= HandleFlip;
+        EventCenter.HitEvent -= SpawnDamageText;
+        EventCenter.FlipEvent -= HandleFlip;
     }
 
     /// <summary>根据受伤实体，在头顶生成伤害数字</summary>

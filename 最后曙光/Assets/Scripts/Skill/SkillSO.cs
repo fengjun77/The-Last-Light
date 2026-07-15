@@ -1,15 +1,17 @@
 using UnityEngine;
 
-public abstract class SkillSO : CollectibleSO
+public abstract class SkillSO : ScriptableObject
 {
-    [Header("技能通用")]
+    [Header("技能基础信息")]
+    public string skillName;
+    public Sprite icon;
     public float cooldown;
-    
-    public override void Collect(Player player)
-    {
-        player.skillManager.LearnSkill(this);
-        //EventCenter.OnShowTipEvent(this);
-    }
-    
+
+    [Header("等级系统")]
+    [Tooltip("同一套技能共享SkillId，区分不同等级")]
+    public int skillId;
+    [Tooltip("当前技能等级")]
+    public int skillLevel;
+
     public abstract void Cast(Player player);
 }

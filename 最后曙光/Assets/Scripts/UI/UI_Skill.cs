@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UI_Skill : MonoBehaviour
 {
-    [SerializeField] private List<SkillSlot> slots = new List<SkillSlot>();
+    [SerializeField] private List<UI_SkillSlot> slots = new List<UI_SkillSlot>();
     public int slotCount;
     public GameObject slotPrefab;
     
@@ -17,7 +17,7 @@ public class UI_Skill : MonoBehaviour
         for(int i = 0; i < slotCount; i++)
         {
             GameObject slot = Instantiate(slotPrefab, transform);
-            SkillSlot skillSlot = slot.GetComponent<SkillSlot>();
+            UI_SkillSlot skillSlot = slot.GetComponent<UI_SkillSlot>();
             slots.Add(skillSlot);
         }
     }

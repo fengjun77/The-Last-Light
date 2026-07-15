@@ -95,24 +95,71 @@ public class SkillManager : MonoBehaviour
         EventCenter.OnUpdateSkillCooldownEvent(currentSkill, currentSkill.cooldown);
     }
 
-    /// <summary>学习新技能（卷轴拾取调用）</summary>
-    public void LearnSkill(SkillSO skill)
+    #region 核心：等级学习/升级逻辑
+    /// <summary>外部调用，判断是否可以学习/升级该卷轴技能</summary>
+    public bool CanLearnSkill(SkillSO scrollSkill)
     {
-        if (!availableSkills.Contains(skill))
-        {
-            availableSkills.Add(skill);
-        }
-        currentIndex = Mathf.Clamp(currentIndex, 0, availableSkills.Count - 1);
-        
-        if (!cooldownDic.ContainsKey(skill))
-            cooldownDic[skill] = 0;
+        if (scrollSkill == null) return false;
 
+        // 查找玩家已学的 同skillId 技能
+        SkillSO sameIdOwned = GetOwnedSameIdSkill(scrollSkill.skillId);
+        // 1. 没有同类型技能，可以直接学
+        if (sameIdOwned == null)
+            return true;
+        // 2. 已有同类型，卷轴等级必须更高才能升级
+        return scrollSkill.skillLevel > sameIdOwned.skillLevel;
+    }
+
+    /// <summary>根据skillId查找玩家已学的对应技能</summary>
+    private SkillSO GetOwnedSameIdSkill(int skillId)
+    {
+        foreach (var skill in availableSkills)
+        {
+            if (skill.skillId == skillId)
+                return skill;
+        }
+        return null;
+    }
+
+    /// <summary>学习/升级技能，卷轴使用入口</summary>
+    public bool LearnSkill(SkillSO scrollSkill)
+    {
+        // 先校验能否学习，不能直接返回false，不消耗卷轴
+        if (!CanLearnSkill(scrollSkill))
+            return false;
+
+        SkillSO oldSkill = GetOwnedSameIdSkill(scrollSkill.skillId);
+        // 情况1：从未学过该技能，新增进列表
+        if (oldSkill == null)
+        {
+            availableSkills.Add(scrollSkill);
+        }
+        // 情况2：已有低等级，替换为高等级
+        else
+        {
+            int oldIndex = availableSkills.IndexOf(oldSkill);
+            availableSkills[oldIndex] = scrollSkill;
+            // 冷却字典移除旧技能，添加新技能
+            cooldownDic.Remove(oldSkill);
+        }
+
+        // 初始化冷却时间
+        if (!cooldownDic.ContainsKey(scrollSkill))
+            cooldownDic[scrollSkill] = 0;
+
+        // 修正选中下标防止越界
+        currentIndex = Mathf.Clamp(currentIndex, 0, availableSkills.Count - 1);
+
+        // 刷新UI技能栏
         EventCenter.OnUpdateSkillsUIEvent(availableSkills);
         if (availableSkills.Count > 0)
         {
             EventCenter.OnUpdateSkillHighlightEvent(currentSkill);
         }
+
+        return true;
     }
+    #endregion
 
     /// <summary>下一个技能（下方向键）</summary>
     public void NextSkill()

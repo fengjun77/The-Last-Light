@@ -14,14 +14,14 @@ public class UI_MiniHealthBar : MonoBehaviour
 
     void OnEnable()
     {
-        EventCenter.OnHealthChange += UpdateHealthBarUI;
-        EventCenter.OnFlip += HandleFlip;
+        EventCenter.HealthChangeEvent += UpdateHealthBarUI;
+        EventCenter.FlipEvent += HandleFlip;
     }
 
     void OnDisable()
     {
-        EventCenter.OnHealthChange -= UpdateHealthBarUI;
-        EventCenter.OnFlip -= HandleFlip;
+        EventCenter.HealthChangeEvent -= UpdateHealthBarUI;
+        EventCenter.FlipEvent -= HandleFlip;
     }
 
     private void UpdateHealthBarUI(float currentHp, float maxHP, Entity entity)
