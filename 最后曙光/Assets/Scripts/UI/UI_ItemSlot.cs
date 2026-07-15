@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 {
     public Inventory_Item itemInSlot { get; private set; }
-    private Inventory_Player inventory;
+    protected Inventory_Player inventory;
 
     [Header("UI格子设置")]
     [SerializeField] private Image itemIcon;
     [SerializeField] private TextMeshProUGUI itemStackSize;
+
+    private float doubleClickThreshold = .3f;
+    private float lastClickTime;
+    private bool waitSecondClick;
 
     void Awake()
     {
@@ -35,9 +39,26 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
         itemStackSize.text = item.stackSize == 1 ? "" : item.stackSize.ToString();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         if(itemInSlot == null) return;
-        inventory.TryEquipItem(itemInSlot);
+
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            float now = Time.unscaledTime;
+
+            if(waitSecondClick && now - lastClickTime < doubleClickThreshold)
+            {
+                inventory.LearnSkill(itemInSlot);
+                waitSecondClick = false;
+            }
+            else
+            {
+                inventory.TryEquipItem(itemInSlot);
+                lastClickTime = now;
+                waitSecondClick = true;
+            }
+        }
+        
     }
 }

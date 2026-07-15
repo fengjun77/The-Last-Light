@@ -13,12 +13,30 @@ public class Inventory_Base : MonoBehaviour
 
     public bool CanAddItem() => itemList.Count < maxInventorySize;
 
+    /// <summary>
+    /// 判断是否有物品可以叠加
+    /// </summary>
+    /// <param name="itemToAdd"></param>
+    /// <returns>返回可叠加的物品</returns>
+    public Inventory_Item StackableItem(Inventory_Item itemToAdd)
+    {
+        List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
+
+        foreach(var stackableItem in stackableItems)
+        {
+            if(stackableItem.CanAddStack())
+                return stackableItem;   
+        }
+
+        return null;
+    }
+
     public void AddItem(Inventory_Item itemToAdd)
     {
-        Inventory_Item itemInInventory = FindItem(itemToAdd.itemData);
+        var existingStackable = StackableItem(itemToAdd);
 
-        if(itemInInventory != null && itemInInventory.CanAddStack())
-            itemInInventory.AddStack();
+        if(existingStackable != null)
+            existingStackable.AddStack();
         else
             itemList.Add(itemToAdd);
 

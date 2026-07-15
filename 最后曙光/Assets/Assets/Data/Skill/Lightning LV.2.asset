@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e18cb0997f2c38a418e1cdd4cc80b18f, type: 3}
-  m_Name: Lightning LV.1
+  m_Name: Lightning LV.2
   m_EditorClassIdentifier: Assembly-CSharp::LightningSkillSO
-  skillName: "\u96F7\u51FB LV.1"
+  skillName: "\u96F7\u51FB LV.2"
   icon: {fileID: -2093170040, guid: 93bd340de03c5b94a8b3bbdb1bba7cb2, type: 3}
-  cooldown: 8
+  cooldown: 6
   skillId: 1001
-  skillLevel: 1
+  skillLevel: 2
   skillRange: 5
   skillFXPrefab: {fileID: 4556715086792343735, guid: cc310d56604887340a0bd76985bab1e3, type: 3}
   enemyLayer:

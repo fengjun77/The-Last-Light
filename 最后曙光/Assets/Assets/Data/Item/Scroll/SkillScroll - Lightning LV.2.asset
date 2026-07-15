@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e858c2a07273a7f4fb3f839ad6f03d45, type: 3}
-  m_Name: SkillScroll - Lightning
+  m_Name: SkillScroll - Lightning LV.2
   m_EditorClassIdentifier: Assembly-CSharp::SkillScrollDataSO
   itemName: "\u96F7\u7535\u5377\u8F74"
   itemIcon: {fileID: 1435083807972979427, guid: 047acfd42a28da8439c5a74a00d4216c, type: 3}
   itemType: 4
   maxStackSize: 1
-  bindSkill: {fileID: 11400000, guid: 8a3fa0d0148996748a92acde2845258b, type: 2}
+  bindSkill: {fileID: 11400000, guid: 092edefcd4b8a86418db52d0c9ca8a5f, type: 2}
