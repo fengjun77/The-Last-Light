@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d87c6953b22600419ba877d008472be, type: 3}
   m_Name: ItemData - Leather
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSO
+  itemPrice: 35
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 8
+  itemRarity: 150
+  dropChance: 75
+  maxDropChance: 75
   itemName: "\u76AE\u9769"
   itemIcon: {fileID: -5205662494574892940, guid: 047acfd42a28da8439c5a74a00d4216c, type: 3}
   itemType: 0
   maxStackSize: 16
+  crafeRecipe: []

@@ -11,7 +11,28 @@ public class Inventory_Base : MonoBehaviour
         
     }
 
-    public bool CanAddItem() => itemList.Count < maxInventorySize;
+    public void TryUseItem(Inventory_Item itemToUse)
+    {
+        Inventory_Item consumable = itemList.Find(item => item == itemToUse);
+
+        if(consumable == null)
+            return;
+
+        consumable.itemEffectByConsumable.ExecuteEffect();
+
+        if(consumable.stackSize > 1)
+            consumable.RemoveStack();
+        else
+            RemoveOneItem(consumable);      
+
+        EventCenter.OnInventoryChangeEvent();  
+    }
+
+    public bool CanAddItem(Inventory_Item itemToAdd)
+    {
+        bool hasStackable = StackableItem(itemToAdd) != null; 
+        return hasStackable || itemList.Count < maxInventorySize;
+    }
 
     /// <summary>
     /// 判断是否有物品可以叠加
@@ -43,11 +64,24 @@ public class Inventory_Base : MonoBehaviour
         EventCenter.OnInventoryChangeEvent();
     }
 
-    public void RemoveItem(Inventory_Item itemToRemove)
+    public void RemoveOneItem(Inventory_Item itemToRemove)
     {
-        itemList.Remove(FindItem(itemToRemove.itemData));
+        Inventory_Item itemInInventory = itemList.Find(item => item == itemToRemove);
+
+        if(itemInInventory.stackSize > 1)
+            itemInInventory.RemoveStack();
+        else
+            itemList.Remove(itemToRemove);
 
         EventCenter.OnInventoryChangeEvent();
+    }
+
+    public void RemoveFullStack(Inventory_Item itemToRemove)
+    {
+        for(int i = 0; i < itemToRemove.stackSize; i++)
+        {
+            RemoveOneItem(itemToRemove);
+        }
     }
 
     public Inventory_Item FindItem(ItemDataSO itemData)

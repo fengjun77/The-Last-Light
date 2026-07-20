@@ -9,7 +9,7 @@ public class Stat_SetupSO : ScriptableObject
     public float healthRegen;
 
     [Header("Offense")]
-    public float attackSpeed = 1;
+    public float attackSpeed = 100;
     public float damage = 10;
     public float critChance;
     public float critPower;

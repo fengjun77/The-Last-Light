@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e029bb81178f74e89849ee57d5128f, type: 3}
+  m_Name: Equipment - EarthwardArmor
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 2800
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 850
+  dropChance: 10
+  maxDropChance: 10
+  itemName: "\u5BD2\u51B0\u4E4B\u94E0"
+  itemIcon: {fileID: 21300000, guid: 6534fd33b72335047899e4d2058ab223, type: 3}
+  itemType: 2
+  maxStackSize: 1
+  crafeRecipe:
+  - itemData: {fileID: 11400000, guid: 1ca99a5c5cd11054ca0fb6ebee8cfd6a, type: 2}
+    stackSize: 5
+  - itemData: {fileID: 11400000, guid: 702b87067dea2624f8991c533d26bcab, type: 2}
+    stackSize: 12
+  - itemData: {fileID: 11400000, guid: 96c9f6ae4ed547a4aa1e07ed79e01cb5, type: 2}
+    stackSize: 20
+  modifiers:
+  - statType: 0
+    value: 100
+  - statType: 11
+    value: 10
+  itemEffect: {fileID: 11400000, guid: 464b9559722def44fb8e931f51d6e13a, type: 2}

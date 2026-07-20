@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a1c2b5875bc6748b5d9ef02fa740fb, type: 3}
+  m_Name: Consumable - ArmorBuff
+  m_EditorClassIdentifier: Assembly-CSharp::ConsumableItemDataSO
+  itemPrice: 140
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 400
+  dropChance: 25
+  maxDropChance: 25
+  itemName: "\u62A4\u7532\u836F\u5242"
+  itemIcon: {fileID: -1086105481712370298, guid: d9b7fcccaef775c4d933bd392a7b42f7, type: 3}
+  itemType: 5
+  maxStackSize: 3
+  crafeRecipe:
+  - itemData: {fileID: 11400000, guid: 941ab786101c99646a909a237b042a8f, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: 702b87067dea2624f8991c533d26bcab, type: 2}
+    stackSize: 3
+  itemEffect: {fileID: 11400000, guid: 44579174feca5de4fb438cb4594ac637, type: 2}

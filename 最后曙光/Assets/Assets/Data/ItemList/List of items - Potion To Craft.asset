@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62f03df256b2d14bae434e65cd24982, type: 3}
+  m_Name: List of items - Potion To Craft
+  m_EditorClassIdentifier: Assembly-CSharp::ItemListDataSO
+  itemList:
+  - {fileID: 11400000, guid: 04c68af9f332db047a856746b2adf5a0, type: 2}
+  - {fileID: 11400000, guid: 1fb6736b58d0f1447b4bb6a67c04fbb4, type: 2}
+  - {fileID: 11400000, guid: e129062ecde26df4cb5733a081dc3468, type: 2}
+  - {fileID: 11400000, guid: 1e5863314cb00d74dae4c9e10af71d1e, type: 2}
+  - {fileID: 11400000, guid: d122bfb9960b33949acb97c59880e9f0, type: 2}
+  - {fileID: 11400000, guid: 1f9184aabef68954bbdd43b59a5cd609, type: 2}

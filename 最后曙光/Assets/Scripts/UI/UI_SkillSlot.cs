@@ -1,10 +1,13 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_SkillSlot : MonoBehaviour
+public class UI_SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    private RectTransform rect;
+
     public Image skillIcon;
     public Image highlight;
     public Image cooldownOverlay;
@@ -20,6 +23,11 @@ public class UI_SkillSlot : MonoBehaviour
     [Header("图标弹出设置")]
     [SerializeField] private float popScale = 1.2f;
     [SerializeField] private float popDuraction = .4f;
+
+    void Awake()
+    {
+        rect = GetComponent<RectTransform>();
+    }
 
     public void SetSlot(SkillSO skill)
     {
@@ -45,8 +53,10 @@ public class UI_SkillSlot : MonoBehaviour
         highlight.gameObject.SetActive(active);
         skillIcon.color = active ? highlightColor : normalColor;
         skillIcon.rectTransform.localScale = active ? highlightScale : normalScale;
-        if(active && assignedSkill != null)
-            skillName.text = assignedSkill.skillName;
+        // if(active && assignedSkill != null)
+        // {
+        //     skillName.text = assignedSkill.skillName +" LV." + assignedSkill.skillLevel;
+        // }
         skillName.enabled = active;
     }
 
@@ -94,5 +104,17 @@ public class UI_SkillSlot : MonoBehaviour
         }
 
         skillIcon.rectTransform.localScale = normalScale;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(assignedSkill == null)  return;
+
+        EventCenter.OnShowSkillToolTipEvent(true, rect, assignedSkill);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        EventCenter.OnShowSkillToolTipEvent(false, rect, null);
     }
 }

@@ -12,58 +12,28 @@ public class SkillManager : MonoBehaviour
     public SkillSO currentSkill => availableSkills.Count > 0 ? availableSkills[currentIndex] : null;
     private Dictionary<SkillSO, float> cooldownDic = new Dictionary<SkillSO, float>();
 
-    private PlayerInputSet inputActions;
-
-    void Awake()
-    {
-        // 初始化新InputSystem
-        inputActions = new PlayerInputSet();
-        inputActions.UI.Enable();
-        
-        // 绑定按键回调
-        inputActions.UI.SelectSkillUp.performed += OnSelectUp;
-        inputActions.UI.SelectSkillDown.performed += OnSelectDown;
-        
-        // 数字快捷键绑定
-        inputActions.UI.SelectSkill1.performed += _ => SelectByIndex(0);
-        inputActions.UI.SelectSkill2.performed += _ => SelectByIndex(1);
-        inputActions.UI.SelectSkill3.performed += _ => SelectByIndex(2);
-        inputActions.UI.SelectSkill4.performed += _ => SelectByIndex(3);
-        inputActions.UI.SelectSkill5.performed += _ => SelectByIndex(4);
-        inputActions.UI.SelectSkill6.performed += _ => SelectByIndex(5);
-        inputActions.UI.SelectSkill7.performed += _ => SelectByIndex(6);
-        inputActions.UI.SelectSkill8.performed += _ => SelectByIndex(7);
-    }
-
     void Start()
     {
         EventCenter.OnUpdateSkillsUIEvent(availableSkills);
         EventCenter.OnUpdateSkillHighlightEvent(currentSkill);
     }
 
-    void OnDestroy()
-    {
-        inputActions.UI.SelectSkillUp.performed -= OnSelectUp;
-        inputActions.UI.SelectSkillDown.performed -= OnSelectDown;
-        inputActions.Dispose();
-    }
-
     #region 输入回调
     // 上切技能
-    private void OnSelectUp(InputAction.CallbackContext ctx)
+    public void OnSelectUp()
     {
         PreviousSkill();
     }
 
     // 下切技能
-    private void OnSelectDown(InputAction.CallbackContext ctx)
+    public void OnSelectDown()
     {
         NextSkill();
     }
     #endregion
 
     /// <summary>数字按键直接选中对应下标技能</summary>
-    private void SelectByIndex(int index)
+    public void SelectByIndex(int index)
     {
         if (availableSkills.Count == 0) return;
         int targetIdx = Mathf.Clamp(index, 0, availableSkills.Count - 1);

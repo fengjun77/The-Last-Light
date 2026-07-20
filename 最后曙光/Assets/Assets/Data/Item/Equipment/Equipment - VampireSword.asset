@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e029bb81178f74e89849ee57d5128f, type: 3}
+  m_Name: Equipment - VampireSword
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 2400
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 850
+  dropChance: 15
+  maxDropChance: 15
+  itemName: "\u8840\u9B54\u5251"
+  itemIcon: {fileID: 21300000, guid: d4b70b0309bc92643a10b189bcc36106, type: 3}
+  itemType: 1
+  maxStackSize: 1
+  crafeRecipe:
+  - itemData: {fileID: 11400000, guid: 7b7799c6d77fa1d4ca105c051b4acb4c, type: 2}
+    stackSize: 6
+  - itemData: {fileID: 11400000, guid: 96c9f6ae4ed547a4aa1e07ed79e01cb5, type: 2}
+    stackSize: 16
+  - itemData: {fileID: 11400000, guid: 2ef3f7c9bee40414fbd17f81eea986a8, type: 2}
+    stackSize: 10
+  modifiers:
+  - statType: 7
+    value: 10
+  - statType: 6
+    value: 10
+  - statType: 8
+    value: 10
+  itemEffect: {fileID: 11400000, guid: d950c33bfbfbe284583aff9e1f4c5350, type: 2}

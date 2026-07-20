@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a1c2b5875bc6748b5d9ef02fa740fb, type: 3}
+  m_Name: Consumable - Middle Health Potion
+  m_EditorClassIdentifier: Assembly-CSharp::ConsumableItemDataSO
+  itemPrice: 160
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 350
+  dropChance: 25
+  maxDropChance: 25
+  itemName: "\u6CBB\u7597\u836F\u5242\uFF08\u4E2D\uFF09"
+  itemIcon: {fileID: 21300000, guid: 17f5f38a8f9e63843beca0837ffe8a1d, type: 3}
+  itemType: 5
+  maxStackSize: 5
+  crafeRecipe:
+  - itemData: {fileID: 11400000, guid: 941ab786101c99646a909a237b042a8f, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: 5dd8de429e04f9843b69d6281f34622d, type: 2}
+    stackSize: 3
+  itemEffect: {fileID: 11400000, guid: 91cb027630b808f48ad05ae45b19b20d, type: 2}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18cb0997f2c38a418e1cdd4cc80b18f, type: 3}
+  m_Name: Lightning LV.3
+  m_EditorClassIdentifier: Assembly-CSharp::LightningSkillSO
+  skillName: "\u96F7\u51FB"
+  icon: {fileID: -2093170040, guid: 93bd340de03c5b94a8b3bbdb1bba7cb2, type: 3}
+  cooldown: 6
+  skillId: 1001
+  skillLevel: 3
+  skillDescription: "\u53EC\u5524\u96F7\u7535\u51FB\u4E2D\u89D2\u82725\u683C\u8303\u56F4\u5185\u7684\u6240\u6709\u654C\u5BF9\u76EE\u6807\n\n\u51B7\u5374
+    \uFF1A 6s\n\u4F24\u5BB3\u52A0\u6210 \uFF1A 10%"
+  skillDamageMultiplier: 0.1
+  skillRange: 5
+  skillFXPrefab: {fileID: 4556715086792343735, guid: cc310d56604887340a0bd76985bab1e3, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128

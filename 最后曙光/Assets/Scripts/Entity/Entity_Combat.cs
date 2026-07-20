@@ -43,11 +43,14 @@ public class Entity_Combat : MonoBehaviour
             if(targetGotHit)
             {
                 vfx.CreateOnHitVFX(target.transform);
-                EventCenter.OnHitEvent(finalDamage, isCrit, targetEntity);
+                EventCenter.OnDamageNumberEvent(finalDamage, isCrit, targetEntity);
+
+                if(targetEntity is Enemy)
+                    EventCenter.OnDoingDamageEvent(finalDamage);
             }
             else
             {
-                EventCenter.OnHitEvent(0, false, targetEntity);
+                EventCenter.OnDamageNumberEvent(0, false, targetEntity);
             }
         }
     }

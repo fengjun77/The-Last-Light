@@ -5,6 +5,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private Entity_VFX entityVFX;
     private Entity entity;
     private Entity_Stats entityStats;
+    private Entity_DropManager dropManager;
 
     [SerializeField] protected float currentHealth;
     [SerializeField] protected bool isDead;
@@ -21,12 +22,13 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     [Header("重击")]
     [SerializeField] private float heavyDamageThreshold = .3f; //受到超过自身30%生命值的伤害时，视为重击伤害
-
+    
     protected virtual void Awake()
     {
         entityVFX = GetComponent<Entity_VFX>();
         entity = GetComponent<Entity>();
         entityStats = GetComponent<Entity_Stats>();
+        dropManager = GetComponent<Entity_DropManager>();
 
         currentHealth = entityStats.GetMaxHealth();
         EventCenter.OnHealthChangeEvent(currentHealth, entityStats.GetMaxHealth(), entity);
@@ -46,7 +48,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         if (AttackEvaded())
         {
-            Debug.Log("成功闪避");
             return false;
         }
 
@@ -96,10 +97,11 @@ public class Entity_Health : MonoBehaviour, IDamageable
     protected void ReduceHealth(float damage)
     {
         currentHealth -= damage;
-        EventCenter.OnHealthChangeEvent(currentHealth, entityStats.GetMaxHealth(), entity);
+        EventCenter.OnHealthChangeEvent(Mathf.Max(0, currentHealth), entityStats.GetMaxHealth(), entity);
 
         if(currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
         }
     }
@@ -108,7 +110,16 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         isDead = true;
         entity.EntityDeath();
+        dropManager?.DropItems();
     }
+
+    public float GetHealthPercent() => currentHealth / entityStats.GetMaxHealth();
+
+    public void SetHealthToPercent(float percent)
+    {
+        currentHealth = entityStats.GetMaxHealth() * percent;
+        EventCenter.OnHealthChangeEvent(currentHealth, entityStats.GetMaxHealth(), entity);
+    } 
 
     private void TakeKnockback(float damage, Transform damageDealer)
     {

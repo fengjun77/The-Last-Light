@@ -15,7 +15,7 @@ public abstract class PlayerState : EntityState
         rb = player.rb;
         input = player.input;
         stats = player.stats;
-        skill = player.skillManager;
+        skill = player.skill;
     }
 
     public override void Enter()

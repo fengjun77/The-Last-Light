@@ -3,8 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
+public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    protected RectTransform rect;
+
     public Inventory_Item itemInSlot { get; private set; }
     protected Inventory_Player inventory;
 
@@ -19,6 +21,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
     void Awake()
     {
         inventory = FindAnyObjectByType<Inventory_Player>();
+        rect = GetComponent<RectTransform>();
     }
 
     public void UpdateSlot(Inventory_Item item)
@@ -41,15 +44,24 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        if(itemInSlot == null) return;
+        if(itemInSlot == null) return;//|| itemInSlot.itemData.itemType == ItemType.Material
 
-        if(eventData.button == PointerEventData.InputButton.Left)
+        bool rightButton = eventData.button == PointerEventData.InputButton.Right;
+        bool leftButton = eventData.button == PointerEventData.InputButton.Left;
+
+        if(leftButton)
         {
             float now = Time.unscaledTime;
 
             if(waitSecondClick && now - lastClickTime < doubleClickThreshold)
             {
-                inventory.LearnSkill(itemInSlot);
+                if(itemInSlot.itemData.itemType == ItemType.Consumable)
+                {
+                    if(!itemInSlot.itemEffectByConsumable.CanBeUsed()) return;
+                    inventory.TryUseItem(itemInSlot);
+                }
+                else if(itemInSlot.itemData.itemType == ItemType.SkillScroll)
+                    inventory.LearnSkill(itemInSlot);
                 waitSecondClick = false;
             }
             else
@@ -59,6 +71,29 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
                 waitSecondClick = true;
             }
         }
-        
+        else if(rightButton)
+        {
+            bool deleteItem = Input.GetKey(KeyCode.R);
+            if(deleteItem)
+            {
+                inventory.RemoveFullStack(itemInSlot);
+                Debug.Log("成功丢弃");
+            }
+        }
+
+        if(itemInSlot == null)
+            EventCenter.OnShowItemToolTipEvent(false, rect, null,false);   
+    }
+
+    public virtual void OnPointerEnter(PointerEventData eventData)
+    {
+        if(itemInSlot == null) return;
+
+        EventCenter.OnShowItemToolTipEvent(true, rect, itemInSlot, false);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        EventCenter.OnShowItemToolTipEvent(false, rect, null, false);
     }
 }

@@ -6,6 +6,9 @@ public class EquipmentDataSO : ItemDataSO
 {
     [Header("物品属性")]
     public ItemModifier[] modifiers;
+
+    [Header("使用效果")]
+    public ItemEffectDataSO itemEffect;
 }
 
 [Serializable]

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u96F7\u96F7\u96F7"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c6c4da662121acc43a8caf9912cb27c6, type: 2}
   m_sharedMaterial: {fileID: -1870482220115851901, guid: c6c4da662121acc43a8caf9912cb27c6, type: 2}
@@ -254,7 +254,7 @@ MonoBehaviour:
   highlight: {fileID: 5745461303625857265}
   cooldownOverlay: {fileID: 9069901077623105121}
   skillName: {fileID: 3397591348263559120}
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  normalColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   popScale: 1.2
   popDuraction: 0.4

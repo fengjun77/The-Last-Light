@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e029bb81178f74e89849ee57d5128f, type: 3}
+  m_Name: Equipment - IronArmor
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 450
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 220
+  dropChance: 30
+  maxDropChance: 30
+  itemName: "\u94C1\u677F\u7532"
+  itemIcon: {fileID: 21300000, guid: 130301732c8914844ba40ce09df3c4bd, type: 3}
+  itemType: 2
+  maxStackSize: 1
+  crafeRecipe:
+  - itemData: {fileID: 11400000, guid: 96c9f6ae4ed547a4aa1e07ed79e01cb5, type: 2}
+    stackSize: 6
+  - itemData: {fileID: 11400000, guid: 702b87067dea2624f8991c533d26bcab, type: 2}
+    stackSize: 4
+  modifiers:
+  - statType: 0
+    value: 20
+  - statType: 11
+    value: 1
+  itemEffect: {fileID: 0}

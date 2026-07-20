@@ -1,18 +1,27 @@
 using UnityEngine;
 
-public class Object_Chest : MonoBehaviour, IDamageable
+public class Object_Chest : MonoBehaviour, IInteractable
 {
     private Animator anim;
+
+    private Entity_DropManager dropManager;
+    private bool canDropItems = true;
 
     void Awake()
     {
         anim = GetComponentInChildren<Animator>(); 
+        dropManager = GetComponent<Entity_DropManager>();
     }
 
-    public bool TakeDamage(float damage, Transform damageDealer)
+    public void Interact()
     {
+        if(canDropItems == false)
+            return;
+
+        canDropItems = false;
+        dropManager?.DropItems();
         anim.SetBool("openChest", true);
 
-        return true;
+        Destroy(gameObject, 2);       
     }
 }

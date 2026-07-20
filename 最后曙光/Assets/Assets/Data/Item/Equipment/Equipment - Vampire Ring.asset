@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e029bb81178f74e89849ee57d5128f, type: 3}
   m_Name: Equipment - Vampire Ring
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 1600
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 850
+  dropChance: 15
+  maxDropChance: 15
   itemName: "\u8840\u9B54\u4E4B\u6212"
   itemIcon: {fileID: -5155006954947433709, guid: d9b7fcccaef775c4d933bd392a7b42f7, type: 3}
   itemType: 3
   maxStackSize: 1
+  crafeRecipe:
+  - itemData: {fileID: 11400000, guid: 7b7799c6d77fa1d4ca105c051b4acb4c, type: 2}
+    stackSize: 5
+  - itemData: {fileID: 11400000, guid: 96c9f6ae4ed547a4aa1e07ed79e01cb5, type: 2}
+    stackSize: 6
   modifiers:
   - statType: 0
     value: 50
   - statType: 10
     value: 10
+  itemEffect: {fileID: 11400000, guid: 665daf5a17be5964da469e7256a1b0bc, type: 2}

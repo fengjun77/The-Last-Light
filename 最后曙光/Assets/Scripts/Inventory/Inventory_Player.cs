@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Inventory_Player : Inventory_Base
 {
+    public int gold = 1000;
     private Player player;
-    private Entity_Stats playerStats;
+
 
     public List<Inventory_EquipmentSlot> equipList;
 
@@ -13,7 +14,7 @@ public class Inventory_Player : Inventory_Base
         base.Awake();
 
         player = GetComponent<Player>();
-        playerStats = GetComponent<Entity_Stats>();
+        EventCenter.OnGoldAmountChangeEvent(gold);
     }
 
     public void TryEquipItem(Inventory_Item item)
@@ -36,36 +37,42 @@ public class Inventory_Player : Inventory_Base
         var slotToReplace = matchingSlots[0];
         var itemToUnequip = slotToReplace.equipedItem;
 
+        UnequipItem(itemToUnequip, slotToReplace != null); 
         EquipItem(inventoryItem, slotToReplace);
-        UnequipItem(itemToUnequip); 
     }
 
     private void EquipItem(Inventory_Item itemToEquip, Inventory_EquipmentSlot slot)
     {
-        slot.equipedItem = itemToEquip;
-        slot.equipedItem.AddModifiers(playerStats);
+        float savedHealthPercent = player.health.GetHealthPercent();
 
-        RemoveItem(itemToEquip);
+        slot.equipedItem = itemToEquip;
+        slot.equipedItem.AddModifiers(player.stats);
+        slot.equipedItem.AddItemEffect(player);
+
+        player.health.SetHealthToPercent(savedHealthPercent);
+
+        RemoveOneItem(itemToEquip);
     }
 
-    public void UnequipItem(Inventory_Item itemToUnequip)
+    public void UnequipItem(Inventory_Item itemToUnequip, bool isReplacing = false)
     {
-        if(!CanAddItem())
+        if(!CanAddItem(itemToUnequip) && !isReplacing)
             return;
 
-        foreach(var slot in equipList)
-        {
-            if(slot.equipedItem == itemToUnequip)
-            {
-                slot.equipedItem = null;
-                break;
-            }
-        }
+        float savedHealthPercent = player.health.GetHealthPercent();
 
-        itemToUnequip.RemoveModifiers(playerStats);
+        var slotToUnequip = equipList.Find(slot => slot.equipedItem == itemToUnequip);
+
+        if(slotToUnequip != null)
+            slotToUnequip.equipedItem = null;
+
+        itemToUnequip.RemoveModifiers(player.stats);
+        itemToUnequip.RemoveItemEffect();
+
+        player.health.SetHealthToPercent(savedHealthPercent);
         AddItem(itemToUnequip);
     }
-
+    
     public void LearnSkill(Inventory_Item skillScroll)
     {
         if(skillScroll.itemData.itemType == ItemType.SkillScroll)
@@ -76,7 +83,7 @@ public class Inventory_Player : Inventory_Base
             if(result == true)
             {
                 Debug.Log("成功学习到了当前技能");
-                RemoveItem(skillScroll);
+                RemoveOneItem(skillScroll);
             }
             else
                 Debug.Log("当前卷轴技能等级过低，无法学习");

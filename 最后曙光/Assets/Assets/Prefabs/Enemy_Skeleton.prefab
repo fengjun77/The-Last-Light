@@ -715,7 +715,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 71.7, y: 18.5, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5366967600432218888}
@@ -881,6 +881,8 @@ MonoBehaviour:
   onDamageVFXDuration: 0.2
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVFX: {fileID: 3894371025023542591, guid: d942bf34b53b3ea48b2cff58a824185e, type: 3}
+  chillVfxColor: {r: 0, g: 0, b: 1, a: 1}
+  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 0}
 --- !u!114 &3393093643395552275
 MonoBehaviour:
@@ -898,45 +900,64 @@ MonoBehaviour:
   resource:
     maxHealth:
       baseValue: 1000
+      modifiers: []
     healthRegen:
       baseValue: 0
+      modifiers: []
   major:
     strength:
       baseValue: 0
+      modifiers: []
     agility:
       baseValue: 0
+      modifiers: []
     intelligence:
       baseValue: 0
+      modifiers: []
     vitality:
       baseValue: 0
+      modifiers: []
   offense:
     attackSpeed:
-      baseValue: 1
+      baseValue: 100
+      modifiers: []
     damage:
       baseValue: 10
+      modifiers: []
     critPower:
       baseValue: 0
+      modifiers: []
     critChance:
       baseValue: 0
+      modifiers: []
     armorReduction:
       baseValue: 0
+      modifiers: []
     fireDamage:
       baseValue: 0
+      modifiers: []
     iceDamage:
       baseValue: 0
+      modifiers: []
     lightningDamage:
       baseValue: 0
+      modifiers: []
   defense:
     armor:
       baseValue: 0
+      modifiers: []
     evasion:
       baseValue: 0
+      modifiers: []
     fireRes:
       baseValue: 0
+      modifiers: []
     iceRes:
       baseValue: 0
+      modifiers: []
     lightningRes:
       baseValue: 0
+      modifiers: []
 --- !u!1 &8605686048393652610
 GameObject:
   m_ObjectHideFlags: 0

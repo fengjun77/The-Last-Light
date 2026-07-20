@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -39,12 +40,31 @@ public class Enemy : Entity
 
     void OnEnable()
     {
-        EventCenter.PlayerDeathEvent += HandlePlayerDeath;    
+        EventCenter.PlayerDeathEvent += HandlePlayerDeath;
     }
 
     void OnDisable()
     {
         EventCenter.PlayerDeathEvent -= HandlePlayerDeath; 
+    }
+
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalBattleSpeed = battleMoveSpeed;
+        float originalAnimSpeed = anim.speed;
+
+        float speedMultiplier = 1 - slowMultiplier;
+
+        moveSpeed = moveSpeed * speedMultiplier;
+        battleMoveSpeed = battleMoveSpeed * speedMultiplier;
+        anim.speed = anim.speed * speedMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalMoveSpeed;
+        battleMoveSpeed = originalBattleSpeed;
+        anim.speed = originalAnimSpeed;
     }
 
     public void EnableCounterWindow(bool enable) => canBeStunned = enable;
@@ -54,6 +74,8 @@ public class Enemy : Entity
         base.EntityDeath();
 
         stateMachine.ChangeState(deadState);
+
+        Destroy(gameObject, 2f);
     }
 
     private void HandlePlayerDeath()

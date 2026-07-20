@@ -19,7 +19,10 @@ public class Player : Entity
     public Player_CastSkillState castSkillState { get; private set; }
     public Player_DeadState deadState { get; private set; }
 
-    public SkillManager skillManager;
+    public Player_VFX vfx { get; private set; }
+
+    public SkillManager skill;
+    public UI ui;
 
     [Header("移动相关")]
     public float moveSpeed;
@@ -48,6 +51,7 @@ public class Player : Entity
 
         input = new PlayerInputSet();
         
+        vfx = GetComponent<Player_VFX>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -68,6 +72,21 @@ public class Player : Entity
         input.Enable();
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+
+        input.Player.Interact.performed += ctx => TryInteract();
+
+        input.UI.SelectSkillUp.performed += ctx => skill.OnSelectUp();
+        input.UI.SelectSkillDown.performed += ctx => skill.OnSelectDown();
+        input.UI.ToggleInventoryUI.performed += ctx => ui.ToggleInventoryUI();
+
+        input.UI.SelectSkill1.performed += _ => skill.SelectByIndex(0);
+        input.UI.SelectSkill2.performed += _ => skill.SelectByIndex(1);
+        input.UI.SelectSkill3.performed += _ => skill.SelectByIndex(2);
+        input.UI.SelectSkill4.performed += _ => skill.SelectByIndex(3);
+        input.UI.SelectSkill5.performed += _ => skill.SelectByIndex(4);
+        input.UI.SelectSkill6.performed += _ => skill.SelectByIndex(5);
+        input.UI.SelectSkill7.performed += _ => skill.SelectByIndex(6);
+        input.UI.SelectSkill8.performed += _ => skill.SelectByIndex(7);
     }
 
     void OnDisable()
@@ -101,5 +120,30 @@ public class Player : Entity
     {
         yield return new WaitForEndOfFrame();
         stateMachine.ChangeState(attackState);
+    }
+
+    private void TryInteract()
+    {
+        Transform closest = null;
+        float closestDistance = Mathf.Infinity;
+        Collider2D[] objectsAround = Physics2D.OverlapCircleAll(transform.position, 1f);
+
+        foreach(var target in objectsAround)
+        {
+            IInteractable interactable = target.GetComponent<IInteractable>();
+            if(interactable == null) continue;
+
+            float distance = Vector2.Distance(transform.position, target.transform.position);
+
+            if(distance < closestDistance)
+            {
+                closestDistance = distance;
+                closest = target.transform;
+            }
+        }
+
+        if(closest == null) return;
+
+        closest.GetComponent<IInteractable>().Interact();
     }
 }

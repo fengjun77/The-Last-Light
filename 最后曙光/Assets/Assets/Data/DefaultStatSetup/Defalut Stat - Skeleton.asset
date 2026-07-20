@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stat_SetupSO
   maxHealth: 1000
   healthRegen: 0
-  attackSpeed: 1
+  attackSpeed: 100
   damage: 10
   critChance: 0
   critPower: 0
