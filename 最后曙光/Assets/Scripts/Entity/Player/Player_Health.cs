@@ -2,6 +2,21 @@ using UnityEngine;
 
 public class Player_Health : Entity_Health
 {
+    private Player player;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        player = GetComponent<Player>();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+            Die();
+    }
+
     void OnEnable()
     {
         EventCenter.IncreaseHealthEvent += IncreaseHealth;
@@ -20,5 +35,12 @@ public class Player_Health : Entity_Health
             EventCenter.OnTakingDamageEvent();
 
         return wasHit;
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+
+        player.ui.OpenDeathScreenUI();
     }
 }

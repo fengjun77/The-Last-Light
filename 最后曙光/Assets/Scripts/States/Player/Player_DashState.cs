@@ -18,6 +18,8 @@ public class Player_DashState : PlayerState
         dashDir = player.facingDir;
 
         originalGravityScale = rb.gravityScale;
+
+        sfx.PlayDash();
     }
 
     public override void Update()

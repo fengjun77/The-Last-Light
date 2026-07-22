@@ -106,7 +106,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         isDead = true;
         entity.EntityDeath();

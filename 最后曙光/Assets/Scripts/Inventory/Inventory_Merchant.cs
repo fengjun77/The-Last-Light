@@ -34,7 +34,8 @@ public class Inventory_Merchant : Inventory_Base
         {
             if(inventory.gold < itemToBuy.buyPrice)
             {
-                Debug.Log("金币不足");
+                EventCenter.OnShowNotificationEvent("金币不足");
+                return;
             }
 
             if(!inventory.CanAddItem(itemToBuy)) break;

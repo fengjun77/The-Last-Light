@@ -42,6 +42,7 @@ public class UI_Merchant : MonoBehaviour
 
     void OnEnable()
     {
+        UpdateSlotUI();
         EventCenter.InventoryChangeEvent += UpdateSlotUI;
     }
 

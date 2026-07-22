@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class UI_ToolTip : MonoBehaviour
 {
-    private RectTransform rect;
+    private RectTransform rect => GetComponent<RectTransform>();
 
     [SerializeField] private Vector2 offset = new Vector2(300,20);
-
-    private void Awake()
-    {
-        rect = GetComponent<RectTransform>();
-    }
 
     public virtual void ShowToolTip(bool show, RectTransform targetRect)
     {

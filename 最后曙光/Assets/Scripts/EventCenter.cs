@@ -55,12 +55,29 @@ public static class EventCenter
     //更新技能冷却
     public static void OnUpdateSkillCooldownEvent(SkillSO skill, float cd) => UpdateSkillCooldownEvent?.Invoke(skill, cd);
 
-    
+    // public static event Action QuickSlotUsedEvent;
+    // public static void OnQuickSlotUsedEvent()
+    // {
+    //     QuickSlotUsedEvent?.Invoke();
+    // }
+
     public static event Action InventoryChangeEvent;
 
     public static void OnInventoryChangeEvent()
     {
         InventoryChangeEvent?.Invoke();
+    }
+
+    public static event Action<int, int, int> ExpUpdateEvent;
+    public static void OnExpUpdateEvent(int currentLevel, int currentExp, int maxExp)
+    {
+        ExpUpdateEvent?.Invoke(currentLevel, currentExp, maxExp);
+    }
+
+    public static event Action<int> AddExpEvent;
+    public static void OnAddExpEvent(int exp)
+    {
+        AddExpEvent?.Invoke(exp);
     }
 
     public static event Action<int> GoldAmountChangeEvent;
@@ -81,6 +98,11 @@ public static class EventCenter
         ShowItemToolTipEvent?.Invoke(show, targetRect, item, buyPrice);
     }
 
+    public static event Action<string> ShowNotificationEvent;
+    public static void OnShowNotificationEvent(string msg)
+    {
+        ShowNotificationEvent?.Invoke(msg);
+    }
 
     //消耗品使用事件
     public static event Action<float> IncreaseHealthEvent;

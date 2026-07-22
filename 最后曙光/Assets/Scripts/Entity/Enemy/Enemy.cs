@@ -1,15 +1,18 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class Enemy : Entity
 {
+    public Entity_Stats stats { get; private set; }
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
     public Enemy_DeadState deadState;
     public Enemy_StunnedState stunnedState;
+
+    [Header("掉落经验")]
+    public int dropExp;
 
     [Header("移动参数")]
     public float idleTime = 2;
@@ -37,6 +40,12 @@ public class Enemy : Entity
     public Transform player { get; private set; }
 
     public Transform damageNumRoot;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        stats = GetComponent<Entity_Stats>();
+    }
 
     void OnEnable()
     {
@@ -74,6 +83,7 @@ public class Enemy : Entity
         base.EntityDeath();
 
         stateMachine.ChangeState(deadState);
+        EventCenter.OnAddExpEvent(dropExp);
 
         Destroy(gameObject, 2f);
     }

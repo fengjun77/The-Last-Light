@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class SkillManager : MonoBehaviour
+public class SkillManager : MonoBehaviour,ISaveable
 {
     public Player player;
     [Header("技能管理")]
@@ -145,5 +144,26 @@ public class SkillManager : MonoBehaviour
         if (availableSkills.Count == 0) return;
         currentIndex = (currentIndex - 1 + availableSkills.Count) % availableSkills.Count;
         EventCenter.OnUpdateSkillHighlightEvent(currentSkill);
+    }
+
+    public void LoadData(GameData data)
+    {
+        foreach(var skill in data.skills)
+        {
+            LearnSkill(skill);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.skills.Clear();
+
+        foreach(var skill in availableSkills)
+        {
+            if(skill != null)
+            {
+                data.skills.Add(skill);
+            }
+        }
     }
 }

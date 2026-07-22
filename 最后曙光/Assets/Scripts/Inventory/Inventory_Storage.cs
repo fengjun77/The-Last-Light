@@ -133,4 +133,48 @@ public class Inventory_Storage : Inventory_Base
 
         return amount;
     }
+
+    public override void SaveData(ref GameData data)
+    {
+        data.storageItems.Clear();
+
+        foreach(var item in itemList)
+        {
+            if(item != null && item.itemData != null)
+            {
+                string saveID = item.itemData.saveID;
+
+                if(data.storageItems.ContainsKey(saveID) == false)
+                    data.storageItems[saveID] = 0;
+
+                data.storageItems[saveID] += item.stackSize;
+            }
+        }
+    }
+
+    public override void LoadData(GameData data)
+    {
+        itemList.Clear();
+
+        foreach(var item in data.storageItems)
+        {
+            string saveID = item.Key;
+            int stackSize = item.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveID);
+
+            if(itemData == null)
+            {
+                Debug.Log("无法找到物品");
+            }  
+
+            for(int i =0; i < stackSize; i++)
+            {
+                Inventory_Item itemToLoad = new Inventory_Item(itemData);
+                AddItem(itemToLoad);
+            }
+        }
+
+        EventCenter.OnInventoryChangeEvent();
+    }
 }

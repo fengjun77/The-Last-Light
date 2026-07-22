@@ -52,7 +52,12 @@ public class Object_ItemPickup : MonoBehaviour
         if(inventory.CanAddItem(itemToAdd))
         {
             inventory.AddItem(itemToAdd);
+            EventCenter.OnShowNotificationEvent($"拾取到了{itemToAdd.itemData.itemName}");
             Destroy(gameObject);
-        } 
+        }
+        else
+        {
+            EventCenter.OnShowNotificationEvent("背包已满，请先清理背包");
+        }
     }
 }

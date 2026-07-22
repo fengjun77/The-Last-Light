@@ -1,11 +1,9 @@
-using UnityEditor.SceneManagement;
-using UnityEngine;
-
 public abstract class PlayerState : EntityState
 {
     protected Player player;
     protected PlayerInputSet input;
     protected SkillManager skill;
+    private float dashCoolDown;
 
     public PlayerState(Player player, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {
@@ -16,6 +14,7 @@ public abstract class PlayerState : EntityState
         input = player.input;
         stats = player.stats;
         skill = player.skill;
+        sfx = player.sfx;
     }
 
     public override void Enter()

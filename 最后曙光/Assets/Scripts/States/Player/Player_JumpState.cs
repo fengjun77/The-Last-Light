@@ -11,6 +11,7 @@ public class Player_JumpState : Player_AirState
         base.Enter();
 
         player.SetVelocity(rb.linearVelocity.x, player.jumpForce);
+        sfx.PlayJump();
     }
 
     public override void Update()

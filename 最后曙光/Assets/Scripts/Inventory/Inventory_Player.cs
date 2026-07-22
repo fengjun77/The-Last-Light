@@ -1,25 +1,46 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory_Player : Inventory_Base
 {
-    public int gold = 1000;
-    private Player player;
-
-
+    public int gold;
     public List<Inventory_EquipmentSlot> equipList;
 
-    protected override void Awake()
-    {
-        base.Awake();
+    [Header("快捷栏")]
+    public Inventory_Item quickItem;
 
-        player = GetComponent<Player>();
+    void Start()
+    {
         EventCenter.OnGoldAmountChangeEvent(gold);
+    }
+
+    public void SetQuickItemInSlot(Inventory_Item itemToSet)
+    {
+        quickItem = itemToSet;
+        EventCenter.OnInventoryChangeEvent();
+    }
+
+    public void TryUseQuickItemInSlot()
+    {
+        var itemToUse = quickItem;
+
+        if(itemToUse == null) return;
+
+        TryUseItem(itemToUse);
+
+        if(FindItem(itemToUse) == null)
+        {
+            quickItem = FindSameItem(itemToUse);
+        }
+
+        EventCenter.OnInventoryChangeEvent();
     }
 
     public void TryEquipItem(Inventory_Item item)
     {
-        var inventoryItem = FindItem(item.itemData);
+        var inventoryItem = FindItem(item);
         var matchingSlots = equipList.FindAll(slot => slot.slotType == item.itemData.itemType);
 
         if(matchingSlots.Count == 0) return;
@@ -82,11 +103,82 @@ public class Inventory_Player : Inventory_Base
 
             if(result == true)
             {
-                Debug.Log("成功学习到了当前技能");
+                EventCenter.OnShowNotificationEvent("成功学习此技能");
                 RemoveOneItem(skillScroll);
             }
             else
-                Debug.Log("当前卷轴技能等级过低，无法学习");
+                EventCenter.OnShowNotificationEvent("当前卷轴技能等级过低，无法学习");
         }
+    }
+
+    public override void SaveData(ref GameData data)
+    {
+        data.gold = gold;
+
+        data.inventory.Clear();
+        data.equipedItems.Clear();
+
+        foreach(var item in itemList)
+        {
+            if(item != null && item.itemData != null)
+            {
+                string saveID = item.itemData.saveID;
+
+                if(data.inventory.ContainsKey(saveID) == false)
+                    data.inventory[saveID] = 0;
+
+                data.inventory[saveID] += item.stackSize;
+            }
+        }
+
+        foreach(var slot in equipList)
+        {
+            if(slot.HasItem())
+                data.equipedItems[slot.equipedItem.itemData.saveID] = slot.slotType;
+        }
+    }
+
+    public override void LoadData(GameData data)
+    {
+        gold = data.gold;
+
+        itemList.Clear();
+
+        foreach(var item in data.inventory)
+        {
+            string saveID = item.Key;
+            int stackSize = item.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveID);
+
+            if(itemData == null)
+            {
+                Debug.Log("无法找到物品");
+            }  
+
+            for(int i =0; i < stackSize; i++)
+            {
+                Inventory_Item itemToLoad = new Inventory_Item(itemData);
+                AddItem(itemToLoad);
+            }
+        }
+
+        foreach(var entry in data.equipedItems)
+        {
+            string saveID = entry.Key;
+            ItemType loadedSlotType = entry.Value;
+
+            ItemDataSO itemData = itemDataBase.GetItemData(saveID);
+            Inventory_Item itemToLoad = new Inventory_Item(itemData);
+
+            var slot = equipList.Find(slot => slot.slotType == loadedSlotType && slot.HasItem() == false);
+        
+            slot.equipedItem = itemToLoad;
+            slot.equipedItem.AddModifiers(player.stats);
+            slot.equipedItem.AddItemEffect(player);
+        }
+
+        EventCenter.OnInventoryChangeEvent();
+        EventCenter.OnGoldAmountChangeEvent(gold);
     }
 }

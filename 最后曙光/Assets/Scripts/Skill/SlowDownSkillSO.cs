@@ -19,11 +19,13 @@ public class SlowDownSkillSO : SkillSO
             Entity targetEntity = target.GetComponent<Entity>();
 
             Entity_VFX targetVfx = target.GetComponent<Entity_VFX>();
+            Entity_SFX sfx = player.GetComponent<Entity_SFX>();
 
             if(targetEntity == null || targetVfx == null) continue;
 
             targetVfx.PlayOnStatusVfx(slowDuration, EffectType.Chill);
             targetEntity.SlowDownEntityBy(slowDuration, slowMultiplier);
+            sfx.PlaySlowEffect();
         }
     }
 }

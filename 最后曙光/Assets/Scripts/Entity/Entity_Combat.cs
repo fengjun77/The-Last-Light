@@ -6,6 +6,7 @@ public class Entity_Combat : MonoBehaviour
 {  
     private Entity_VFX vfx;
     private Entity_Stats stats;
+    private Entity_SFX sfx;
 
     [Header("目标检测")]
     public Transform attackCheckPoint;
@@ -16,10 +17,13 @@ public class Entity_Combat : MonoBehaviour
     {
         vfx = GetComponent<Entity_VFX>();
         stats = GetComponent<Entity_Stats>();
+        sfx = GetComponent<Entity_SFX>();
     }
 
     public void PerformAttack()
     {
+        bool targetGotHit = false;
+
         foreach(var target in GetDetectedColliders())
         {
             IDamageable damageable = target.GetComponent<IDamageable>();
@@ -38,7 +42,7 @@ public class Entity_Combat : MonoBehaviour
                 mitigation = targetStat.GetArmorMitigation(armorReduction);
             float finalDamage = damage * (1 - mitigation);
             
-            bool targetGotHit = damageable.TakeDamage(finalDamage, transform);
+            targetGotHit = damageable.TakeDamage(finalDamage, transform);
             
             if(targetGotHit)
             {
@@ -47,12 +51,17 @@ public class Entity_Combat : MonoBehaviour
 
                 if(targetEntity is Enemy)
                     EventCenter.OnDoingDamageEvent(finalDamage);
+
+                sfx?.PlayAttack();
             }
             else
             {
                 EventCenter.OnDamageNumberEvent(0, false, targetEntity);
             }
         }
+
+        if(targetGotHit == false)
+            sfx?.PlayAttackMiss();
     }
 
     protected Collider2D[] GetDetectedColliders()

@@ -9,20 +9,22 @@ public class ItemEffect_Buff : ItemEffectDataSO
     [SerializeField] private float duration;
     [SerializeField] private string source = Guid.NewGuid().ToString();
 
-    private Player_Stats playerStats;
-
-    public override bool CanBeUsed()
+    public override bool CanBeUsed(Player player)
     {
-        if(playerStats == null)
-            playerStats = FindFirstObjectByType<Player_Stats>();
-
-        return playerStats.CanApplyBuffOf(source);
+        if(player.stats.CanApplyBuffOf(source))
+        {
+            this.player = player;
+            return true;
+        }
+        else
+            return false;
     }
 
     public override void ExecuteEffect()
     {
-        playerStats.ApplyBuff(buffsToApply, duration, source);
+        player.stats.ApplyBuff(buffsToApply, duration, source);
         //更新BuffUI
         EventCenter.OnUpdateBuffIconEvent(buffIcon, duration);
+        player = null;
     }
 }

@@ -1,8 +1,11 @@
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "RPG/Item/Material", fileName = "Material - ")]
 public class ItemDataSO : ScriptableObject
 {
+    public string saveID;
+
     [Header("交易详情")]
     [Range(0,10000)]
     public int itemPrice = 100;
@@ -29,6 +32,11 @@ public class ItemDataSO : ScriptableObject
     public void OnValidate()
     {
         dropChance = GetDropChance();
+
+#if UNITY_EDITOR
+        string path = AssetDatabase.GetAssetPath(this);
+        saveID = AssetDatabase.AssetPathToGUID(path);
+#endif
     }
 
     public float GetDropChance()

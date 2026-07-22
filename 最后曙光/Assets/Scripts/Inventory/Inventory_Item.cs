@@ -31,7 +31,7 @@ public class Inventory_Item
         itemId = itemData.itemName + " - " +  Guid.NewGuid();
     }
 
-    public void AddModifiers(Entity_Stats playerStats)
+    public void AddModifiers(Player_Stats playerStats)
     {
         foreach(var mod in modifiers)
         {
@@ -40,7 +40,7 @@ public class Inventory_Item
         }
     }
 
-    public void RemoveModifiers(Entity_Stats playerStats)
+    public void RemoveModifiers(Player_Stats playerStats)
     {
         foreach(var mod in modifiers)
         {

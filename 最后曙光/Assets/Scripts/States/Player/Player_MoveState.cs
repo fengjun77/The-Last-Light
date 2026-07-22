@@ -10,6 +10,7 @@ public class Player_MoveState : Player_GroundedState
     public override void Enter()
     {
         base.Enter();
+        sfx.PlayMoveSource();
     }
 
     public override void Update()
@@ -27,5 +28,6 @@ public class Player_MoveState : Player_GroundedState
     public override void Exit()
     {
         base.Exit();
+        sfx.StopMoveSource();
     }
 }

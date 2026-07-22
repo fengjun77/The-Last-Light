@@ -16,7 +16,7 @@ public class UI_CraftPreview : MonoBehaviour
     public void SetupCraftPreview(Inventory_Storage storage)
     {
         this.storage = storage;
-        craftPreviewSlots = GetComponentsInChildren<UI_CraftPreviewSlot>();
+        craftPreviewSlots = GetComponentsInChildren<UI_CraftPreviewSlot>(true);
 
         foreach(var slot in craftPreviewSlots)
         {

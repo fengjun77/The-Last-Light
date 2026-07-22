@@ -19,6 +19,7 @@ public class LightningSkillSO : SkillSO
             Entity_Stats stats = player.GetComponent<Entity_Stats>();
             Entity_Stats targetStat = target.GetComponent<Entity_Stats>();
             Entity_VFX vfx = player.GetComponent<Entity_VFX>();
+            Entity_SFX sfx = player.GetComponent<Entity_SFX>();
             Entity_VFX targetVfx = target.GetComponent<Entity_VFX>();
             
             if(damageable == null) continue;
@@ -39,6 +40,7 @@ public class LightningSkillSO : SkillSO
             if(targetGotHit)
             {
                 vfx.CreateOnHitVFX(target.transform);
+                sfx.PlayLightning();
                 targetVfx.PlayOnStatusVfx(.5f, EffectType.Lightning);
                 GameObject prefab = Instantiate(skillFXPrefab, target.transform);
                 Destroy(prefab, 2);

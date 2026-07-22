@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    
+    public static Player instance;
     public PlayerInputSet input { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
@@ -20,9 +20,11 @@ public class Player : Entity
     public Player_DeadState deadState { get; private set; }
 
     public Player_VFX vfx { get; private set; }
+    public Player_Stats stats { get; private set; }
 
-    public SkillManager skill;
-    public UI ui;
+    public SkillManager skill { get; private set;}
+    public UI ui { get; private set; }
+    public Inventory_Player inventory { get; private set; }
 
     [Header("移动相关")]
     public float moveSpeed;
@@ -48,10 +50,16 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
+        instance = this;
+
+        vfx = GetComponent<Player_VFX>();
+        inventory = GetComponent<Inventory_Player>();
+        stats = GetComponent<Player_Stats>();
+        skill = GetComponentInChildren<SkillManager>();
+        ui = FindAnyObjectByType<UI>();
 
         input = new PlayerInputSet();
-        
-        vfx = GetComponent<Player_VFX>();
+        ui.SetupControlsUI(input);
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -77,7 +85,6 @@ public class Player : Entity
 
         input.UI.SelectSkillUp.performed += ctx => skill.OnSelectUp();
         input.UI.SelectSkillDown.performed += ctx => skill.OnSelectDown();
-        input.UI.ToggleInventoryUI.performed += ctx => ui.ToggleInventoryUI();
 
         input.UI.SelectSkill1.performed += _ => skill.SelectByIndex(0);
         input.UI.SelectSkill2.performed += _ => skill.SelectByIndex(1);
@@ -87,6 +94,8 @@ public class Player : Entity
         input.UI.SelectSkill6.performed += _ => skill.SelectByIndex(5);
         input.UI.SelectSkill7.performed += _ => skill.SelectByIndex(6);
         input.UI.SelectSkill8.performed += _ => skill.SelectByIndex(7);
+
+        input.Player.QuickItemSlot_1.performed += ctx => inventory.TryUseQuickItemInSlot();
     }
 
     void OnDisable()
@@ -99,6 +108,8 @@ public class Player : Entity
         base.Start();
         stateMachine.Init(idleState);
     }
+
+    public void TeleportPlayer(Vector3 position) => transform.position = position;
 
     public override void EntityDeath()
     {
@@ -126,7 +137,7 @@ public class Player : Entity
     {
         Transform closest = null;
         float closestDistance = Mathf.Infinity;
-        Collider2D[] objectsAround = Physics2D.OverlapCircleAll(transform.position, 1f);
+        Collider2D[] objectsAround = Physics2D.OverlapCircleAll(transform.position, .5f);
 
         foreach(var target in objectsAround)
         {

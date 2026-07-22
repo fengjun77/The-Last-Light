@@ -5,6 +5,7 @@ public abstract class EntityState
     protected StateMachine stateMachine;
     protected string animBoolName; 
     protected Entity_Stats stats;
+    protected Entity_SFX sfx;
 
     protected Animator anim;
     protected Rigidbody2D rb;

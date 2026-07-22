@@ -12,6 +12,7 @@ public class HealSkillSO : SkillSO
     {
         Entity_Stats playerStats = player.GetComponent<Entity_Stats>();
         Player_VFX vfx = player.GetComponent<Player_VFX>();
+        Entity_SFX sfx = player.GetComponent<Entity_SFX>();
         if(playerStats == null) return;
 
         float healAmount = playerStats.GetMaxHealth() * healPercent;
@@ -19,5 +20,7 @@ public class HealSkillSO : SkillSO
 
         if(vfx != null)
             vfx.CreatePlayerVfx(healVfx, player.transform.position);
+
+        sfx.PlayHeal();
     }
 }
